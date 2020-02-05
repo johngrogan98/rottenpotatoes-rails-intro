@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.where("rating='G'")
+    @movies = Movie.order(sort_by)
   end
 
   def new
