@@ -25,8 +25,8 @@ class MoviesController < ApplicationController
 		
 		if params.key?(:ratings)
 			session[:ratings] = params[:ratings]
+			@checked_ratings = params[:ratings]
 		elsif session.key?(:ratings)
-		  @checked_ratings = session[:ratings].keys
 			params[:ratings] = session[:ratings]
 			redirect_to movies_path(params) and return
 		end
