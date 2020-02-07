@@ -25,11 +25,11 @@ class MoviesController < ApplicationController
 		if params.key?(:ratings)
 			session[:ratings] = params[:ratings]
 		elsif session.key?(:ratings)
+		  @checked_ratings = session[:ratings].keys
 			params[:ratings] = session[:ratings]
 			redirect_to movies_path(params) and return
 		end
 		
-		@checked_ratings = (session[:ratings].keys if session.key?(:ratings)) || @all_ratings
     @movies = Movie.order(sort_by).where(rating: @checked_ratings)
     
   end
