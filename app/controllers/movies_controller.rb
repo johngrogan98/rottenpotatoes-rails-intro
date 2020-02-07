@@ -32,8 +32,8 @@ class MoviesController < ApplicationController
 			redirect_to movies_path(params) and return
 		end
 		
-    movie = Movie.order(sort_by)
-    @movies = movie.with_ratings(@checked_ratings)
+		movie = Movie.with_ratings(@checked_ratings)
+    @movie = movie.order(sort_by)
     
   end
 
