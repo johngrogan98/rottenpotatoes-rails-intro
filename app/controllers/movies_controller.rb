@@ -21,6 +21,7 @@ class MoviesController < ApplicationController
 		
 		@hilite = sort_by = session[:sort_by]
 		@all_ratings = Movie.all_ratings
+		@checked_ratings = @all_ratings
 		
 		if params.key?(:ratings)
 			session[:ratings] = params[:ratings]
