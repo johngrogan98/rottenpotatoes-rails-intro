@@ -5,5 +5,9 @@ class Movie < ActiveRecord::Base
 	def self.all_ratings
 		@@all_ratings
 	end
+	
+	def with_ratings(ratings)
+		return Movie.where(rating: @ratings)
+	end
 
 end

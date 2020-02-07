@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
 		end
 		
     movie = Movie.order(sort_by)
-    @movies = movie.where(rating: @checked_ratings)
+    @movies = movie.with_ratings(@checked_ratings)
     
   end
 
