@@ -19,7 +19,8 @@ class MoviesController < ApplicationController
 			redirect_to movies_path(params) and return
 		end
 		
-		@hilite = sort_by = session[:sort_by]
+		sort_by = session[:sort_by]
+		@hilite = sort_by
 		@all_ratings = Movie.all_ratings
 		@checked_ratings = @all_ratings
 		
