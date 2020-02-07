@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
 		end
 		
 		movie = Movie.with_ratings(@checked_ratings)
-    @movie = movie.order(sort_by)
+    @movies = movie.order(sort_by)
     
   end
 
