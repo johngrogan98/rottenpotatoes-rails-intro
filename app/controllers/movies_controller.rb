@@ -39,7 +39,7 @@ class MoviesController < ApplicationController
 		#get a list of movies in the selected ratings
 		movie = Movie.with_ratings(@checked_ratings)
 		
-		#sort those based on the sort variable
+		#sort that list based on if user pressed sort
     @movies = movie.order(sort_by)
     
   end
