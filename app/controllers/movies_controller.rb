@@ -23,8 +23,9 @@ class MoviesController < ApplicationController
 		sort_by = session[:sort_by]
 		@hilite = sort_by
 		
-	  #set checked ratings to all ratings
-		@checked_ratings = ['G','PG','PG-13','R']
+	  #set checked ratings to all
+		@all_ratings = Movie.all_ratings
+		@checked_ratings = @all_ratings
 		
 		#check the ratings that have been selected
 		if params.key?(:ratings)
@@ -41,6 +42,7 @@ class MoviesController < ApplicationController
 		
 		#sort those based on the sort variable
     @movies = movie.order(sort_by)
+    
   end
 
   def new
