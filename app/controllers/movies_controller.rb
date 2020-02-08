@@ -11,21 +11,20 @@ class MoviesController < ApplicationController
   end
 
   def index
+    #set checked ratings to all
+		@all_ratings = Movie.all_ratings
+		@checked_ratings = @all_ratings
+		
     #checks if a sort has been selected
 		if params.key?(:sort_by)
 			session[:sort_by] = params[:sort_by]
+			sort_by = session[:sort_by]
+		  @hilite = sort_by
 		elsif session.key?(:sort_by)
 			params[:sort_by] = session[:sort_by]
 			redirect_to movies_path(params) and return
 		end
-		
-		#highlight if sort has been selected
-		sort_by = session[:sort_by]
-		@hilite = sort_by
-		
-	  #set checked ratings to all
-		@all_ratings = Movie.all_ratings
-		@checked_ratings = @all_ratings
+
 		
 		#check the ratings that have been selected
 		if params.key?(:ratings)
